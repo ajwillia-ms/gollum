@@ -24,10 +24,10 @@ opts = OptionParser.new do |opts|
     
   # set basic info for the "--help" command (options will be appended automatically from the below definitions)
   opts.banner = '
-  Gollum is a multi-format Wiki Engine/API/Frontend.
+  Samwise is a WYSIWYG markdown Wiki Engine/API/Frontend.
     
   Usage:
-      gollum [options] [git-repo]
+      samwise [options] [git-repo]
     
   Arguments:
       [git-repo]                     Path to the git repository being served. If not specified, current working directory is used.
@@ -35,7 +35,7 @@ opts = OptionParser.new do |opts|
   Notes:
       Paths for all options are relative to <git-repo> unless absolute.
       This message is only a basic description. For more information, please visit:
-          https://github.com/gollum/gollum
+          https://github.com/ajwillia-ms/samwise
   
   OPTIONS'
   
@@ -46,7 +46,7 @@ opts = OptionParser.new do |opts|
   opts.on("-h", "--host [HOST]", "Specify the hostname or IP address to listen on. Default: '0.0.0.0'.") do |host|
     options[:bind] = host
   end
-  opts.on("-p", "--port [PORT]", "Specify the port to bind Gollum with. Default: '4567'.") do |port|
+  opts.on("-p", "--port [PORT]", "Specify the port to bind with. Default: '4567'.") do |port|
     begin
       # don't use "port.to_i" here... it doesn't raise errors which might result in a nice confusion later on
       options[:port] = Integer(port)
@@ -55,19 +55,19 @@ opts = OptionParser.new do |opts|
       exit 1
     end
   end
-  opts.on("-c", "--config [FILE]", "Specify path to the Gollum's configuration file.") do |file|
+  opts.on("-c", "--config [FILE]", "Specify path to the configuration file.") do |file|
     options[:config] = file
   end
   opts.on("-r", "--ref [REF]", "Specify the branch to serve. Default: 'master'.") do |ref|
     wiki_options[:ref] = ref
   end
-  opts.on("-a", "--adapter [ADAPTER]", "Launch Gollum using a specific git adapter. Default: 'grit'.") do |adapter|
+  opts.on("-a", "--adapter [ADAPTER]", "Launch using a specific git adapter. Default: 'grit'.") do |adapter|
     Gollum::GIT_ADAPTER = adapter
   end
   opts.on("--bare", "Declare '<git-repo>' to be bare. This is only necessary when using the grit adapter.") do
     wiki_options[:repo_is_bare] = true
   end
-  opts.on("-b", "--base-path [PATH]", "Specify the leading portion of all Gollum URLs (path info). Default: '/'.",
+  opts.on("-b", "--base-path [PATH]", "Specify the leading portion of all wiki URLs (path info). Default: '/'.",
     "Example: setting this to '/wiki' will make the wiki accessible under 'http://localhost:4567/wiki/'.") do |base_path|
       
     # first trim a leading slash, if any
@@ -90,7 +90,7 @@ MSG
     wiki_options[:base_path] = base_path
   end
   opts.on("--page-file-dir [PATH]", "Specify the subdirectory for all pages. Default: repository root.", 
-    "Example: setting this to 'pages' will make Gollum serve only pages at '<git-repo>/pages/*'.") do |path|
+    "Example: setting this to 'pages' will serve only pages at '<git-repo>/pages/*'.") do |path|
     wiki_options[:page_file_dir] = path
   end
   opts.on("--css", "Inject custom CSS into each page. The '<git-repo>/custom.css' file is used (must be committed).") do
@@ -112,8 +112,8 @@ MSG
     wiki_options[:live_preview] = false
   end
   opts.on("--allow-uploads [MODE]", [:dir, :page], "Enable file uploads.",
-    "If set to 'dir', Gollum will store all uploads in the '<git-repo>/uploads/' directory.",
-    "If set to 'page', Gollum will store each upload at the currently edited page.") do |mode|
+    "If set to 'dir', Store all uploads in the '<git-repo>/uploads/' directory.",
+    "If set to 'page', Store each upload at the currently edited page.") do |mode|
     wiki_options[:allow_uploads]    = true
     wiki_options[:per_page_uploads] = true if mode == :page
   end
@@ -121,7 +121,7 @@ MSG
     "By default, uses the 'TeX-AMS-MML_HTMLorMML' config with the 'autoload-all' extension.") do
     wiki_options[:mathjax] = true
   end
-  opts.on("--irb", "Launch Gollum in 'console mode', with a predefined API.") do
+  opts.on("--irb", "Launch Samwise in 'console mode', with a predefined API.") do
     options[:irb] = true
   end
   
