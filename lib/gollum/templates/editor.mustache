@@ -54,16 +54,6 @@
       <span>Help</span></a>
     </div>
 
-    <div id="gollum-editor-format-selector">
-      <label for="format">Edit Mode</label>
-      <select id="wiki_format" name="format">
-      {{#formats}}
-        <option {{#selected}}selected="selected" {{/selected}}value="{{id}}">
-          {{name}}
-        </option>
-      {{/formats}}
-     </select>
-    </div>
   </div>
   <div id="gollum-editor-help" class="jaws">
     <ul id="gollum-editor-help-parent">
@@ -87,7 +77,8 @@
       </div>
     </div>
   </div>
-    <textarea id="gollum-editor-body"
+    <textarea id="samwise-editor-body" name="wysiwyg"></textarea>
+    <textarea id="gollum-editor-body" style="display: none"
      data-markup-lang="{{format}}" name="content" class="mousetrap">{{content}}</textarea>
     <div>
       <i class="fa fa-spinner fa-spin"></i>
@@ -121,10 +112,10 @@
     <div id="gollum-editor-edit-summary" class="singleline">
       <label for="message" class="jaws">Edit message:</label>
       {{#is_create_page}}
-      <input type="text" name="message" id="gollum-editor-message-field" value="Created {{page_name}} ({{format}})">
+      <input type="text" name="message" id="gollum-editor-message-field" value="Created {{page_name}}">
       {{/is_create_page}}
       {{#is_edit_page}}
-      <input type="text" name="message" id="gollum-editor-message-field" value="Updated {{page_name}} ({{format}})">
+      <input type="text" name="message" id="gollum-editor-message-field" value="Updated {{page_name}}">
       {{/is_edit_page}}
     </div>
 
@@ -134,3 +125,4 @@
   </fieldset>
 </form>
 </div>
+
