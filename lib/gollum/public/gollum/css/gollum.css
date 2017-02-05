@@ -451,11 +451,9 @@ a:hover, a:visited {
 }
 
 .results #results {
-  border-bottom: 1px solid #ccc;
   margin-left: 1em;
   margin-right: 1em;
   margin-bottom: 2em;
-  padding-bottom: 2em;
 }
 
 .results #results ul {
@@ -499,6 +497,12 @@ a:hover, a:visited {
   font-size: 1.2em;
   line-height: 1.6em;
   margin-top: 2em;
+}
+
+.results #footer {
+  clear: both;
+  border-top: 1px solid #ddd;
+  padding: 1em 0;
 }
 
 .results #footer ul.actions li {

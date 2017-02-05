@@ -20,14 +20,7 @@ a {
 
 #gollum-editor {
   margin: 0 0 5em;
-  padding: 0em 1em 0.4em;
-}
-
-#gollum-editor:after {
-  content: ".";
-  display: block;
-  visibility: hidden;
-  clear: both;
+  padding: 1em;
 }
 
 .ff #gollum-editor,
