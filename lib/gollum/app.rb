@@ -339,7 +339,7 @@ module Precious
 
       name   = params[:page].to_url
       path   = sanitize_empty_params(params[:path]) || ''
-      format = params[:format].intern
+      format = params[:format] ? params[:format].intern : "md"
       wiki   = wiki_new
 
       path.gsub!(/^\//, '')
