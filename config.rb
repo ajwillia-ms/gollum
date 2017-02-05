@@ -21,3 +21,8 @@ Gollum::Markup.formats[:markdown] = {
     :regexp => /md|mkdn?|mdown|markdown/
 }
 
+Gollum::Hook.register(:post_commit, :hook_id) do |committer, sha1|
+    committer.wiki.repo.git.pull("origin", "master")
+    committer.wiki.repo.git.push("origin", "master")
+end
+
