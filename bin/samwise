@@ -11,11 +11,13 @@ exec         = {}
 options      = {
   :port => 4567,
   :bind => '0.0.0.0',
+  :config => 'config.rb',
 }
 wiki_options = {
   :live_preview  => false,
   :allow_uploads => false,
   :allow_editing => true,
+  :css => true,
 }
 
 opts = OptionParser.new do |opts|
