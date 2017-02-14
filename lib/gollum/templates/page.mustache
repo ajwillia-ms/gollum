@@ -19,6 +19,15 @@ Mousetrap.bind(['e'], function( e ) {
         <a href="#" id="minibutton-new-page">New</a></li>
     {{/allow_editing}}
 
+    <li class="minibutton menu-button"><a href="#" class="burger">&nbsp;</a>
+      <ul class="page-menu">
+    {{#allow_editing}}
+      {{#editable}}
+        <li class="minibutton"><a href="{{base_url}}/edit/{{escaped_url_path}}"
+           class="action-edit-page">Edit</a></li>
+      {{/editable}}
+    {{/allow_editing}}
+ 
     <li class="minibutton"><a href="{{base_url}}/pages"
       class="action-all-pages">All</a></li>
     {{#allow_editing}}
@@ -33,18 +42,15 @@ Mousetrap.bind(['e'], function( e ) {
           <a href="#" id="minibutton-rename-page">Rename</a></li>
       {{/editable}}
     {{/allow_editing}}
-    {{#allow_editing}}
-      {{#editable}}
-        <li class="minibutton"><a href="{{base_url}}/edit/{{escaped_url_path}}"
-           class="action-edit-page">Edit</a></li>
-      {{/editable}}
-    {{/allow_editing}}
     {{#page_exists}}
     <li class="minibutton"><a href="{{base_url}}/history/{{escaped_url_path}}"
        class="action-page-history">History</a></li>
     <li class="minibutton"><a href="{{base_url}}/latest_changes"
        class="action-page-history">Latest Changes</a></li>
     {{/page_exists}}
+
+      </ul>
+    </li>
   </ul>
 </div>
 <div id="wiki-content">

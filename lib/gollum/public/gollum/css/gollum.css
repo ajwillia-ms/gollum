@@ -285,6 +285,45 @@ a:hover, a:visited {
   }
 }
 
+/* page menu */
+a.burger {
+    position: relative;
+    padding-left: 1.25em;
+}
+
+a.burger:after {
+    content: "";
+    position: absolute;
+    left: 0.75em;
+    top: 0.55em;
+    width: 1.15em;
+    height: 0.2em;
+    background: black;
+    box-shadow: 0 0.4em 0 0 black, 0 0.8em 0 0 black;
+}
+
+ul.page-menu {
+  position: absolute;
+  list-style: none;
+
+  background-color: white;
+
+  margin-left: -0.5em;
+  padding: 0.5em 0.5em 0 0;
+  z-index: 100;
+}
+
+ul.page-menu li {
+  float: none !important;
+}
+
+.menu-button ul.page-menu {
+    display: none;
+}
+
+.menu-button:hover ul.page-menu {
+    display: block;
+}
 
 /* @section history */
 .history h1 {
