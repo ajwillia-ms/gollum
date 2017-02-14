@@ -519,6 +519,7 @@ module Precious
       wiki = wiki_new
 
       name = extract_name(fullpath) || wiki.index_page
+      name = File.basename(name, File.extname(name)) if (File.extname(name) == '.md')
       path = extract_path(fullpath) || '/'
 
       if page = wiki.paged(name, path, exact = true)
